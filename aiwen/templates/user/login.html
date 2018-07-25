@@ -1,32 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'user_base.html' %}
 
 {% block title %}
-    <title>爱提网 - 提供贴近生活的内容</title>
-{% endblock %}
-
-{% block header %}
-
-<div class="fly-header layui-bg-black">
-    <div class="layui-container"><a class="fly-logo" href="//www.itgoodboy.com"><img src="/v2/image/logo.png"
-                                                                                     width="138" alt="layui"></a>
-        <ul class="layui-nav fly-nav layui-hide-xs">
-            <li class="layui-nav-item"><a href="//www.itgoodboy.com/c/1a7eed31e7ea"><i
-                    class="iconfont icon-shichang"></i>科技</a></li>
-            <li class="layui-nav-item"><a href="//www.itgoodboy.com/c/42934c9e5982"><i class="iconfont icon-jifen"></i>财经</a>
-            </li>
-            <li class="layui-nav-item"><a href="//www.itgoodboy.com/c/f17c99a07b56"><i
-                    class="iconfont icon-pinglun2"></i>美食</a></li>
-            <li class="layui-nav-item"><a href="//www.itgoodboy.com/c/111068b1d68d"><i
-                    class="iconfont icon-iconmingxinganli"></i>绘画<span class="layui-badge-dot"></span></a></li>
-        </ul>
-        <ul class="layui-nav fly-nav-user" id="loginStatus">
-            <li class="layui-nav-item"><a class="iconfont icon-touxiang layui-hide-xs"
-                                          href="//www.itgoodboy.com/login"></a></li>
-            <li class="layui-nav-item"><a href="//www.itgoodboy.com/login">登入</a></li>
-            <li class="layui-nav-item"><a href="//www.itgoodboy.com/register">注册</a></li>
-        </ul>
-    </div>
-</div>
+    <title>爱文 - 提供贴近生活的内容</title>
 {% endblock %}
 
 {% block content %}
@@ -34,20 +9,21 @@
     <div class="fly-panel fly-panel-user" pad20>
         <div class="layui-tab layui-tab-brief" lay-filter="user">
             <ul class="layui-tab-title">
-                <li class="layui-this">登入</li>
-                <li><a href="//www.itgoodboy.com/register">注册</a></li>
+                <li><a href="{% url 'user:login' %}">登入</a></li>
+                <li><a href="{% url 'user:register' %}">注册</a></li>
             </ul>
             <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
                 <div class="layui-tab-item layui-show">
                     <div class="layui-form layui-form-pane">
 
-                        <form method="post" action="/login/post">
-                            <input type="hidden" name="_token" value="oTgY8c7wmXQYhKvE574YXsFO48qTRIZYOsU04NtM">
+                        <form method="post" action="">
+{#                            <input type="hidden" name="_token" value="oTgY8c7wmXQYhKvE574YXsFO48qTRIZYOsU04NtM">#}
+                            {% csrf_token %}
                             <div class="layui-form-item">
-                                <label for="L_email" class="layui-form-label">用户名</label>
+                                <label for="L_email" class="layui-form-label">账号</label>
                                 <div class="layui-input-inline">
                                     <input type="text" id="L_email" name="username" required lay-verify="required"
-                                           placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                                           placeholder="请输入用户名或手机号" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-form-item">
@@ -74,9 +50,8 @@
 
                             <div class="layui-form-item">
                                 <button class="layui-btn" lay-filter="*" lay-submit>立即登录</button>
-                                <span style="padding-left:20px;">
+                                <span style="padding-left:20px;"></span>
 
-</span>
                             </div>
                             <div class="layui-form-item fly-form-app">
                                 <span>或者使用社交账号登入</span>
@@ -91,19 +66,6 @@
             </div>
         </div>
     </div>
-</div>
-{% endblock %}
-
-{% block footer %}
-<div class="fly-footer">
-    <p>
-        <a href="//www.itgoodboy.com/p/c6c463925dbe" target="_blank">关于我们</a><span class="fly-mid"></span>
-        <a href="//www.itgoodboy.com/p/c6c463925dbe" target="_blank">帮助中心</a><span class="fly-mid"></span>
-        <a href="//www.itgoodboy.com/im" target="_blank">联系客服</a>
-    </p>
-    <p>Copyright&nbsp;&copy;&nbsp;2018&nbsp;爱提网 All rights reserved.
-        <a href="http://www.miitbeian.gov.cn" target="_blank" rel="nofollow" style="display:inline-block;">豫ICP备14014264号-1</a>
-    </p>
 </div>
 {% endblock %}
 

@@ -4,49 +4,10 @@
 {% endblock %}
 
 {% block header %}
-<div class="fly-header layui-bg-black">
-    <div class="layui-container"><a class="fly-logo" href="//www.itgoodboy.com"><img src="/v2/image/logo.png"
-                                                                                     width="138" alt="layui"></a>
-        <ul class="layui-nav fly-nav layui-hide-xs">
-            <li class="layui-nav-item"><a href="//www.itgoodboy.com/c/1a7eed31e7ea"><i
-                    class="iconfont icon-shichang"></i>科技</a></li>
-            <li class="layui-nav-item"><a href="//www.itgoodboy.com/c/42934c9e5982"><i class="iconfont icon-jifen"></i>财经</a>
-            </li>
-            <li class="layui-nav-item"><a href="//www.itgoodboy.com/c/f17c99a07b56"><i
-                    class="iconfont icon-pinglun2"></i>美食</a></li>
-            <li class="layui-nav-item"><a href="//www.itgoodboy.com/c/111068b1d68d"><i
-                    class="iconfont icon-iconmingxinganli"></i>绘画<span class="layui-badge-dot"></span></a></li>
-        </ul>
-        <ul class="layui-nav fly-nav-user" id="loginStatus">
-            <li class="layui-nav-item"><a class="iconfont icon-touxiang layui-hide-xs"
-                                          href="//www.itgoodboy.com/login"></a></li>
-            <li class="layui-nav-item"><a href="{% url 'user:login' %}">登入</a></li>
-            <li class="layui-nav-item"><a href="{% url 'user:register' %}">注册</a></li>
-        </ul>
-    </div>
-</div>
+
 {% endblock %}
 
 {% block content %}
-<div class="fly-panel fly-column">
-    <div class="layui-container">
-        <ul class="layui-clear" id="nav-search">
-            <li class="layui-hide-xs  layui-this"><a href="//www.itgoodboy.com">首页</a></li>
-            <li><a href="//www.itgoodboy.com/c/631a1e03dcc2">军事</a></li>
-            <li><a href="//www.itgoodboy.com/c/c09a86b34f44">旅游</a></li>
-            <li><a href="//www.itgoodboy.com/c/452b25174903">财经</a></li>
-            <li><a href="//www.itgoodboy.com/c/5af79a748ff6">作文</a></li>
-            <li><a href="//www.itgoodboy.com/c/405e61db7397">油画</a><span class="layui-badge-dot"></span></li>
-            <li><a href="//www.itgoodboy.com/c/57d3679d8038">信阳毛尖</a></li>
-        </ul>
-        <div class="fly-column-right layui-hide-xs"><span class="fly-search" id="search_60"><i class="layui-icon">&#xe615;</i></span>
-            <a href="//www.itgoodboy.com/post" class="layui-btn">发布文章</a></div>
-        <div class="layui-hide-sm layui-show-xs-block"
-             style="margin-top: -10px; padding-bottom: 10px; text-align: center;">
-            <a href="//www.itgoodboy.com/post" class="layui-btn">发布文章</a>
-        </div>
-    </div>
-</div>
 <div class="layui-container">
     <div class="layui-row layui-col-space15">
         <div class="layui-col-md8">
@@ -535,7 +496,6 @@
                     <li><a href="https://www.itgoodboy.com/p/a9f748ce9aa6">技师来了APP:广州美女陪购员,陪人逛街每小时赚1000元</a></li>
                     <li><a href="https://www.itgoodboy.com/p/cdc8f947f4c2">技师来了APP:自由就业时代来临</a></li>
                     <li><a href="https://www.itgoodboy.com/p/ff189e8d4b28">技师来了APP:用你的兴趣爱好来创业</a></li>
-                    </li>
                 </ul>
             </div>
             <dl class="fly-panel fly-list-one">
@@ -667,18 +627,6 @@
 </div>
 {% endblock %}
 
-{% block footer %}
-<div class="fly-footer">
-    <p>
-        <a href="//www.itgoodboy.com/p/c6c463925dbe" target="_blank">关于我们</a><span class="fly-mid"></span>
-        <a href="//www.itgoodboy.com/p/c6c463925dbe" target="_blank">帮助中心</a><span class="fly-mid"></span>
-        <a href="//www.itgoodboy.com/im" target="_blank">联系客服</a>
-    </p>
-    <p>Copyright&nbsp;&copy;&nbsp;2018&nbsp;爱提网 All rights reserved.
-        <a href="http://www.miitbeian.gov.cn" target="_blank" rel="nofollow" style="display:inline-block;">豫ICP备14014264号-1</a>
-    </p>
-</div>
-{% endblock %}
 {% block extjs %}
 
 <script>
