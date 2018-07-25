@@ -1,0 +1,697 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>爱文</title>
+{% endblock %}
+
+{% block header %}
+<div class="fly-header layui-bg-black">
+    <div class="layui-container"><a class="fly-logo" href="//www.itgoodboy.com"><img src="/v2/image/logo.png"
+                                                                                     width="138" alt="layui"></a>
+        <ul class="layui-nav fly-nav layui-hide-xs">
+            <li class="layui-nav-item"><a href="//www.itgoodboy.com/c/1a7eed31e7ea"><i
+                    class="iconfont icon-shichang"></i>科技</a></li>
+            <li class="layui-nav-item"><a href="//www.itgoodboy.com/c/42934c9e5982"><i class="iconfont icon-jifen"></i>财经</a>
+            </li>
+            <li class="layui-nav-item"><a href="//www.itgoodboy.com/c/f17c99a07b56"><i
+                    class="iconfont icon-pinglun2"></i>美食</a></li>
+            <li class="layui-nav-item"><a href="//www.itgoodboy.com/c/111068b1d68d"><i
+                    class="iconfont icon-iconmingxinganli"></i>绘画<span class="layui-badge-dot"></span></a></li>
+        </ul>
+        <ul class="layui-nav fly-nav-user" id="loginStatus">
+            <li class="layui-nav-item"><a class="iconfont icon-touxiang layui-hide-xs"
+                                          href="//www.itgoodboy.com/login"></a></li>
+            <li class="layui-nav-item"><a href="{% url 'user:login' %}">登入</a></li>
+            <li class="layui-nav-item"><a href="{% url 'user:register' %}">注册</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="fly-panel fly-column">
+    <div class="layui-container">
+        <ul class="layui-clear" id="nav-search">
+            <li class="layui-hide-xs  layui-this"><a href="//www.itgoodboy.com">首页</a></li>
+            <li><a href="//www.itgoodboy.com/c/631a1e03dcc2">军事</a></li>
+            <li><a href="//www.itgoodboy.com/c/c09a86b34f44">旅游</a></li>
+            <li><a href="//www.itgoodboy.com/c/452b25174903">财经</a></li>
+            <li><a href="//www.itgoodboy.com/c/5af79a748ff6">作文</a></li>
+            <li><a href="//www.itgoodboy.com/c/405e61db7397">油画</a><span class="layui-badge-dot"></span></li>
+            <li><a href="//www.itgoodboy.com/c/57d3679d8038">信阳毛尖</a></li>
+        </ul>
+        <div class="fly-column-right layui-hide-xs"><span class="fly-search" id="search_60"><i class="layui-icon">&#xe615;</i></span>
+            <a href="//www.itgoodboy.com/post" class="layui-btn">发布文章</a></div>
+        <div class="layui-hide-sm layui-show-xs-block"
+             style="margin-top: -10px; padding-bottom: 10px; text-align: center;">
+            <a href="//www.itgoodboy.com/post" class="layui-btn">发布文章</a>
+        </div>
+    </div>
+</div>
+<div class="layui-container">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md8">
+            <div class="fly-panel">
+                <div class="fly-panel-title fly-filter">
+                    <a>
+                        科技新闻
+                    </a>
+                </div>
+                <ul class="fly-list">
+                    <li><a href="https://www.itgoodboy.com/u/497630e8430d" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180523/a6c74ec55696818ffc2a613adc222e94.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="李星"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/54a5622edfcf">凯晟互动：助力广告主抢占大屏红利，生态营销平台如何赋能</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/497630e8430d" link>
+                            <cite>李星</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>2月前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 25 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/497630e8430d" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180521/e740aaa19b1305db2968a577eb153a68.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="李星"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/44bda73af16c">头部主播跳槽，折射映客走下坡路了吗？</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/497630e8430d" link>
+                            <cite>李星</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>2月前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 86 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/497630e8430d" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180518/317cf800636b6bd484dd28cd4506b3bb.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="李星"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/9c9934108e9e">PPTV强势对标小米，折射互联网电视之战的核心逻辑</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/497630e8430d" link>
+                            <cite>李星</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>2月前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 19 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="fly-panel" style="margin-bottom: 0;">
+                <div class="fly-panel-title fly-filter">
+                    <a href="//www.itgoodboy.com/c/5979354577f0">互联网+</a><span class="fly-mid"></span>
+                    <a href="//www.itgoodboy.com/c/d070a761ba63">创投</a><span class="fly-mid"></span>
+                    <a href="//www.itgoodboy.com/c/43cd805870c9">软件</a><span class="fly-mid"></span>
+                    <a href="//www.itgoodboy.com/c/e1f7dc51aa21">视频</a>
+                </div>
+
+                <ul class="fly-list">
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180725/25770dfb0ecd7e5c4a163e861afeadfa.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/5b9b75a85434">技师来了APP教你跑马拉松的正确姿势</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>9小时前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 2 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180725/ae39600c6c4396690fbd98e4bc8a1fc1.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/bc3b25d39c81">技师来了APP:想约就约,享受美好生活</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>9小时前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 4 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180725/b21b3b0686cb6368ef14513cee29264d.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/95f3ae4413d7">技师来了APP:人人可上手的创业项目</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>9小时前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 2 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180725/e6a339ee43ee3480b1f6b8c2dac4c4bd.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/226ab04dd25c">美好生活,从技师来了APP约技师上门开始</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>9小时前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 2 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180725/79336d2181141cedf58579935991aa89.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/03da1a4af353">探探被收购后,技师来了APP的春天来了</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>9小时前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 2 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/497630e8430d" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180724/de3278da64993463efed20bcdfdf3e48.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="李星"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/2a282fb30418">小米、美团、拼多多MMP崛起背后的逻辑</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/497630e8430d" link>
+                            <cite>李星</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>1天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 4 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180723/1850b24c8dc1a027167b889d8d47467d.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/342d256e8021">技师来了APP:想约啥就约啥</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>2天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 4 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180723/8b958d2471db1fa687faadcb0615936f.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/540d476d3d09">一次在技师来了APP难忘的约X经历</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>2天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 5 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180723/dfb61050157c7ec7984ccb2c9e987a4d.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/7d7166556357">技师来了APP:新时代的约X神器</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>2天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 3 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180723/311ed0f59a4317525824840a55869159.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/dd040e4faaf2">技师来了APP:啥都能约的软件</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>2天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 3 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180715/7de5853177a6b8a1b06479fd453f8991.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/7e638a1b5d8f">技师来了APP:技能共享界的滴滴</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>2天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 3 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180723/33b53138fd487773e3f0afcaef3a61a2.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/dd8c1c704301">宠物没人照看,找"技师来了APP"</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>2天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 5 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180723/015a79c39829ed66d0d60a307822c175.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/5beea421039e">技师来了APP,卖人的"淘宝"</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>2天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 5 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180723/44774eb3af5c66f3332f3f6505a982f3.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/f36190b52e6a">除了剥蟹,技师来了APP还有更多</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>2天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 5 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180723/8209030fc6f3cbbd941d807e5c2aec64.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/c18d0e623afa">做自己的BOSS,技师来了APP成为中国领先自由职业平台</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>2天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 3 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180723/c2319ac4b7871d0184c578c991dc0e8e.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/e806f269510c">蓝领月薪3万!技师来了APP助力蓝领成就高收入</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>2天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 3 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/4d73d6a4e730" class="fly-avatar"><img
+                            src="https://www.itgoodboy.com/image/default.png" alt="关渝禾"></a>
+                        <h2><a class="layui-badge">大数据</a> <a href="https://www.itgoodboy.com/p/3adc32edc161">关渝禾：7.22黄金多头或迎来转机，下周行情分析</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/4d73d6a4e730" link>
+                            <cite>关渝禾</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>3天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 2 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/497630e8430d" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180721/decb8bc53e82e25671df45c1b1005dd0.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="李星"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/0a66d52031c1">千锤万凿方能出厂，OPPO
+                            Find X背后蕴含了怎样的黑科技?</a></h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/497630e8430d" link>
+                            <cite>李星</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>3天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 6 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/976306449d30" class="fly-avatar"><img
+                            src="https://www.itgoodboy.com/image/default.png" alt="佚名"></a>
+                        <h2><a class="layui-badge">大数据</a> <a href="https://www.itgoodboy.com/p/4804c4c24614">赛逸豪:黄金价格的变动</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/976306449d30" link>
+                            <cite>佚名</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>4天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 2 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/976306449d30" class="fly-avatar"><img
+                            src="https://www.itgoodboy.com/image/default.png" alt="佚名"></a>
+                        <h2><a class="layui-badge">大数据</a> <a href="https://www.itgoodboy.com/p/0d74223e867d">赛逸豪:黄金价格的变动</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/976306449d30" link>
+                            <cite>佚名</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>4天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 2 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/976306449d30" class="fly-avatar"><img
+                            src="https://www.itgoodboy.com/image/default.png" alt="佚名"></a>
+                        <h2><a class="layui-badge">大数据</a> <a href="https://www.itgoodboy.com/p/5e60e7af600f">赛逸豪:黄金价格的变动</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/976306449d30" link>
+                            <cite>佚名</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>4天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 2 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/976306449d30" class="fly-avatar"><img
+                            src="https://www.itgoodboy.com/image/default.png" alt="佚名"></a>
+                        <h2><a class="layui-badge">大数据</a> <a href="https://www.itgoodboy.com/p/91f4375ec566">赛逸豪:黄金价格的变动</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/976306449d30" link>
+                            <cite>佚名</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>4天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 2 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/976306449d30" class="fly-avatar"><img
+                            src="https://www.itgoodboy.com/image/default.png" alt="佚名"></a>
+                        <h2><a class="layui-badge">大数据</a> <a href="https://www.itgoodboy.com/p/62684b27d904">赛逸豪:黄金价格的变动</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/976306449d30" link>
+                            <cite>佚名</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>4天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 2 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/976306449d30" class="fly-avatar"><img
+                            src="https://www.itgoodboy.com/image/default.png" alt="佚名"></a>
+                        <h2><a class="layui-badge">大数据</a> <a href="https://www.itgoodboy.com/p/a5316543fe37">赛逸豪:黄金价格的变动</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/976306449d30" link>
+                            <cite>佚名</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>4天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 2 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180721/5a7eee115b0f1a1613404c556ce7bcda.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/a9f748ce9aa6">技师来了APP:广州美女陪购员,陪人逛街每小时赚1000元</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>4天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 5 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180721/43ed24fdd3574f81543d7e996514d6c5.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/cdc8f947f4c2">技师来了APP:自由就业时代来临</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>4天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 5 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180721/d8b35128f4e998b5562945ea950e6cb1.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/ff189e8d4b28">技师来了APP:用你的兴趣爱好来创业</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>4天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 8 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180721/321b6673607349b771224786124f1748.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/6d45a6262dc2">技师来了APP,让你免费享受小资生活</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>4天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 3 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180721/444458e1028484812ad5c37e82e69dfb.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/05c4e8f5f265">技师来了APP:你和柳岩有个约会</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>4天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 4 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                    <li><a href="https://www.itgoodboy.com/u/de538abb093a" class="fly-avatar"><img
+                            src="https://image.itgoodboy.com/upload/20180720/629d6c1ec139a30a614c53daf941f252.jpg?x-oss-process=image/resize,m_fill,w_120,h_120,limit_0/auto-orient,0/quality,q_90/watermark,text_54ix5o-Q572R,type_d3F5LXplbmhlaQ,size_14,t_100,color_e3e3e3,g_se,y_6,x_6"
+                            alt="技师来了app"></a>
+                        <h2><a class="layui-badge">互联网+</a> <a href="https://www.itgoodboy.com/p/3af1c33c30bb">如何在"技师来了APP"增加派单</a>
+                        </h2>
+                        <div class="fly-list-info"><a href="https://www.itgoodboy.com/u/de538abb093a" link> <cite>技师来了app</cite>
+                            <i class="iconfont icon-renzheng" title=""></i>
+                        </a><span>5天前</span>
+                            <span class="fly-list-nums">
+<i class="iconfont icon-liulanyanjing" title="阅读"></i> 3 </span>
+                        </div>
+                        <div class="fly-list-badge"></div>
+                    </li>
+                </ul>
+                <div style="text-align: center">
+                    <div class="laypage-main"><a href="//www.itgoodboy.com/c/5979354577f0" class="laypage-next">更多文章</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="layui-col-md4">
+            <div class="fly-panel fly-link"><h3 class="fly-panel-title">实时统计</h3>
+                <dl class="fly-panel-main">
+                    <dd>当前&nbsp;<em id="userTotal" style="color: orangered;font-weight: bold;">0</em>&nbsp;人在线，共打开&nbsp;<em
+                            id="pageTotal" style="color: orangered;font-weight: bold;">0</em>&nbsp;个页面。
+                    </dd>
+                    <dd><span style="color: gray;">Powered by
+<a href="https://www.workerman.net/" target="_blank" style="color: #1372A2;font-weight: bold;padding-right: 0px;">workerman</a>.
+</span></dd>
+                </dl>
+            </div>
+            <div class="fly-panel"><h3 class="fly-panel-title">热门文章</h3>
+                <ul class="fly-panel-main fly-list-static">
+                    <li><a href="https://www.itgoodboy.com/p/7e638a1b5d8f">技师来了APP:技能共享界的滴滴</a></li>
+                    <li><a href="https://www.itgoodboy.com/p/dd8c1c704301">宠物没人照看,找&quot;技师来了APP&quot;</a></li>
+                    <li><a href="https://www.itgoodboy.com/p/5beea421039e">技师来了APP,卖人的&quot;淘宝&quot;</a></li>
+                    <li><a href="https://www.itgoodboy.com/p/f36190b52e6a">除了剥蟹,技师来了APP还有更多</a></li>
+                    <li><a href="https://www.itgoodboy.com/p/c18d0e623afa">做自己的BOSS,技师来了APP成为中国领先自由职业平台</a></li>
+                    <li><a href="https://www.itgoodboy.com/p/e806f269510c">蓝领月薪3万!技师来了APP助力蓝领成就高收入</a></li>
+                    <li><a href="https://www.itgoodboy.com/p/0a66d52031c1">千锤万凿方能出厂，OPPO Find X背后蕴含了怎样的黑科技?</a></li>
+                    <li><a href="https://www.itgoodboy.com/p/a9f748ce9aa6">技师来了APP:广州美女陪购员,陪人逛街每小时赚1000元</a></li>
+                    <li><a href="https://www.itgoodboy.com/p/cdc8f947f4c2">技师来了APP:自由就业时代来临</a></li>
+                    <li><a href="https://www.itgoodboy.com/p/ff189e8d4b28">技师来了APP:用你的兴趣爱好来创业</a></li>
+                    </li>
+                </ul>
+            </div>
+            <dl class="fly-panel fly-list-one">
+                <dt class="fly-panel-title">本周热议</dt>
+                <dd><a href="https://www.itgoodboy.com/p/6d45a6262dc2">技师来了APP,让你免费享受小资生活</a><span><i
+                        class="iconfont icon-liulanyanjing"></i> 3</span></dd>
+                <dd><a href="https://www.itgoodboy.com/p/05c4e8f5f265">技师来了APP:你和柳岩有个约会</a><span><i
+                        class="iconfont icon-liulanyanjing"></i> 4</span></dd>
+                <dd><a href="https://www.itgoodboy.com/p/3af1c33c30bb">如何在&quot;技师来了APP&quot;增加派单</a><span><i
+                        class="iconfont icon-liulanyanjing"></i> 3</span></dd>
+                <dd><a href="https://www.itgoodboy.com/p/513060cc744d">失恋缺爱?上&quot;技师来了APP&quot;</a><span><i
+                        class="iconfont icon-liulanyanjing"></i> 4</span></dd>
+                <dd><a href="https://www.itgoodboy.com/p/af1a37181b8b">单身没女友?上&quot;技师来了APP&quot;</a><span><i
+                        class="iconfont icon-liulanyanjing"></i> 3</span></dd>
+                <dd><a href="https://www.itgoodboy.com/p/d767d6f203eb">打工不如创业,零成本创业项目,年利轻松40万</a><span><i
+                        class="iconfont icon-liulanyanjing"></i> 6</span></dd>
+                <dd><a href="https://www.itgoodboy.com/p/8588419112d6">约X、摇一摇之后,高端兴趣社交时代来了</a><span><i
+                        class="iconfont icon-liulanyanjing"></i> 4</span></dd>
+                <dd><a href="https://www.itgoodboy.com/p/e3320b2d2ac3">关渝禾：7.19美指大牛袭来，黄金多头必套无疑！</a><span><i
+                        class="iconfont icon-liulanyanjing"></i> 6</span></dd>
+                <dd><a href="https://www.itgoodboy.com/p/fa58f3b11153">赛逸豪：供投资者选择的投资品种十分丰富</a><span><i
+                        class="iconfont icon-liulanyanjing"></i> 7</span></dd>
+                <dd><a href="https://www.itgoodboy.com/p/6e159f7a84dc">赛逸豪：供投资者选择的投资品种十分丰富</a><span><i
+                        class="iconfont icon-liulanyanjing"></i> 6</span></dd>
+            </dl>
+            <div class="fly-panel fly-link"><h3 class="fly-panel-title">相关分类</h3>
+                <dl class="fly-panel-main">
+                    <dd><a href="//www.itgoodboy.com/c/264c56d61abb">社会</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/c09a86b34f44">旅游</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/efde90702128">教育</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/631a1e03dcc2">军事</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/54769cab4764">观点</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/c80371be42d2">人物</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/a5cb3aff175c">动态</a></dd>
+
+                    <dd><a href="//www.itgoodboy.com/c/8cd449b5fa59">行业</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/77660f1c8e16">新车</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/252dfd49b86a">用车</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/af8a3c2288c3">快讯</a></dd>
+
+                    <dd><a href="//www.itgoodboy.com/c/e3ac22ce65c9">洞见</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/452b25174903">产经</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/a7b2c63544cd">证券</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/36f9380e26b2">败局</a></dd>
+
+                    <dd><a href="//www.itgoodboy.com/c/5979354577f0">互联网+</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/2da8dd17a230">大数据</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/d070a761ba63">创投</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/43cd805870c9">软件</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/07139ee50750">游戏</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/4aeb967136d4">动漫</a></dd>
+
+                    <dd><a href="//www.itgoodboy.com/c/62978936348e">文化</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/e11783777e71">娱乐</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/9f55eb72e93d">体育</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/e3b69ff490fa">健康</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/ad088c981f8c">星座</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/0983414588bc">搞笑</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/8944906d7738">宠物</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/7d0d4756a46c">母婴</a></dd>
+
+                    <dd><a href="//www.itgoodboy.com/c/f994a55a2e34">热菜</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/9452db28eeef">凉菜</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/44d447ab8046">汤羹</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/5b31b6acaa64">主食</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/e950d5bd2999">小吃</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/28525f02ff38">西餐</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/05a76ba8bbc0">烘焙</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/d5c16ab2a348">饮品</a></dd>
+
+                    <dd><a href="//www.itgoodboy.com/c/d8d4bf18c9c4">散文</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/e8b98f4b68e4">小说</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/a013bb465449">故事</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/df810eafab90">笑话</a></dd>
+
+                    <dd><a href="//www.itgoodboy.com/c/1e003174b3ee">清新</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/28d86cbb0f0c">制服</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/220ea20df9e5">欧美</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/dba8d3420680">萝莉</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/d8fecfa77f20">卡通</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/efcecbdf3ce9">性感</a></dd>
+
+                    <dd><a href="//www.itgoodboy.com/c/4d51cb2d8b6b">小学作文</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/153c4e90fc69">初中作文</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/a660a6db723b">高中作文</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/5a5bcf7e2aa0">话题作文</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/5fc024f65930">抒情作文</a></dd>
+                    <dd><a href="//www.itgoodboy.com/c/265ab1bd6bbc">写事作文</a></dd>
+                    <dd><a href="//www.itgoodboy.com/collections">更多>></a></dd>
+
+                </dl>
+            </div>
+
+
+            <div class="fly-panel fly-link"><h3 class="fly-panel-title">热门搜索</h3>
+                <dl class="fly-panel-main">
+                    <dd><a href="//www.itgoodboy.com/search?key=阿里巴巴&cid=10">阿里巴巴</a></dd>
+                    <dd><a href="//www.itgoodboy.com/search?key=百度&cid=10">百度</a></dd>
+                    <dd><a href="//www.itgoodboy.com/search?key=暴雪&cid=10">暴雪</a></dd>
+                    <dd><a href="//www.itgoodboy.com/search?key=爱奇艺&cid=10">爱奇艺</a></dd>
+                    <dd><a href="//www.itgoodboy.com/search?key=比特币&cid=10">比特币</a></dd>
+
+                    <dd><a href="//www.itgoodboy.com/search?key=创业&cid=10">创业</a></dd>
+                    <dd><a href="//www.itgoodboy.com/search?key=草根&cid=10">草根</a></dd>
+                    <dd><a href="//www.itgoodboy.com/search?key=财经&cid=10">财经</a></dd>
+                    <dd><a href="//www.itgoodboy.com/search?key=彩票&cid=10">彩票</a></dd>
+                    <dd><a href="//www.itgoodboy.com/search?key=电商&cid=10">电商</a></dd>
+
+                    <dd><a href="//www.itgoodboy.com/search?key=二手车&cid=10">二手车</a></dd>
+                    <dd><a href="//www.itgoodboy.com/search?key=股价&cid=10">股价</a></dd>
+                    <dd><a href="//www.itgoodboy.com/search?key=国产手机&cid=10">国产手机</a></dd>
+                    <dd><a href="//www.itgoodboy.com/search?key=互联网技术&cid=10">互联网技术</a></dd>
+                    <dd><a href="//www.itgoodboy.com/search?key=互联网金融&cid=10">互联网金融</a></dd>
+
+                    <dd><a href="//www.itgoodboy.com/search?key=iphone&cid=10">iphone</a></dd>
+                    <dd><a href="//www.itgoodboy.com/search?key=京东&cid=10">京东</a></dd>
+                    <dd><a href="//www.itgoodboy.com/search?key=科技媒体&cid=10">科技媒体</a></dd>
+                    <dd><a href="//www.itgoodboy.com/search?key=农业&cid=10">农业</a></dd>
+                    <dd><a href="//www.itgoodboy.com/search?key=苹果&cid=10">苹果</a></dd>
+
+
+                    <dd><a href="//www.itgoodboy.com/tag">更多>></a></dd>
+
+                </dl>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<div class="fly-footer">
+    <p>
+        <a href="//www.itgoodboy.com/p/c6c463925dbe" target="_blank">关于我们</a><span class="fly-mid"></span>
+        <a href="//www.itgoodboy.com/p/c6c463925dbe" target="_blank">帮助中心</a><span class="fly-mid"></span>
+        <a href="//www.itgoodboy.com/im" target="_blank">联系客服</a>
+    </p>
+    <p>Copyright&nbsp;&copy;&nbsp;2018&nbsp;爱提网 All rights reserved.
+        <a href="http://www.miitbeian.gov.cn" target="_blank" rel="nofollow" style="display:inline-block;">豫ICP备14014264号-1</a>
+    </p>
+</div>
+{% endblock %}
+{% block extjs %}
+
+<script>
+    layui.cache.page = 'index';
+    layui.cache.user = {
+        username: '游客',
+        uid: 2,
+        avatar: '/image/default.png',
+        experience: 110,
+        sum: 0,
+        vip: 0,
+        sex: ''
+    };
+    layui.config({version: Date.parse(new Date())}).extend({'fly': '/v2/js/index'}).use('fly');
+</script>
+{% endblock %}

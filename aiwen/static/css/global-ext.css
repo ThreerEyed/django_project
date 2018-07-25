@@ -1,0 +1,29 @@
+.fly-logo{top:2px;left:0px;}
+.fly-nav{margin-left:180px;}
+.fly-list-static li a {color:#333;}
+.fly-footer{background-color:gainsboro;}
+.fly-mid {background-color:#bbb}
+
+.pagination{margin-top:20px;padding:0 0 20px 15px;}
+.pagination a{padding: 5px 10px;background-color: #00AA98; color: #fff;margin: 0 1px;}
+.pagination .on{background-color: #414141;}
+
+.fly-rank dl{position: relative; overflow: hidden; margin-left: 20px; text-align: center; font-size: 0;height:310px;}
+@media screen and (max-width: 750px) {
+    .layui-col-md4{display:none;}
+    .pagination a{display:inline-block;margin:2px;}
+}
+
+.copyright{margin:10px 0;color:gray;background:#F7F6F6;padding:20px 20px 6px 20px;font-size:14px;}
+.copyright p{margin-bottom: 8px;}
+
+
+/*post*/
+.input-tip{padding-top: 6px;color:orangered}
+.input-tip a{color:orangered}
+.star {color: red;padding-right: 5px;}
+
+em {color: orangered;}
+
+/* 404或提示 */
+.fly-none .iconfont{line-height: 150px; font-size: 150px; color: #393D49;}
