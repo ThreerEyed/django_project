@@ -4,26 +4,26 @@
  */
 
 //===== 百度统计 =====
-var _hmt = _hmt || [];
-(function() {
-    var hm = document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?bf923227d5ecb0a725bb3ca3dc85e7d8";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-})();
+// var _hmt = _hmt || [];
+// (function() {
+//     var hm = document.createElement("script");
+//     hm.src = "https://hm.baidu.com/hm.js?bf923227d5ecb0a725bb3ca3dc85e7d8";
+//     var s = document.getElementsByTagName("script")[0];
+//     s.parentNode.insertBefore(hm, s);
+// })();
 
 
 //=====第三方登录：QQ登录
-var oauth={
-    childWindow:null,
-    url:'https://graph.qq.com/oauth2.0/authorize?client_id=101135247&response_type=code&state=1&scope=get_user_info&redirect_uri=https%3a%2f%2fwww.itgoodboy.com%2fqqlogin',
-    toQzoneLogin:function(){
-        this.childWindow = window.open(this.url,'TencentLogin','width='+(window.screen.availWidth)+',height='+(window.screen.availHeight)+',menubar=0,scrollbars=1,resizable=1,status=1,titlebar=0,toolbar=0,location=1');
-    },
-    toQzoneLogout:function(){
-        this.childWindow.close();
-    }
-};
+// var oauth={
+//     childWindow:null,
+//     url:'https://graph.qq.com/oauth2.0/authorize?client_id=101135247&response_type=code&state=1&scope=get_user_info&redirect_uri=https%3a%2f%2fwww.itgoodboy.com%2fqqlogin',
+//     toQzoneLogin:function(){
+//         this.childWindow = window.open(this.url,'TencentLogin','width='+(window.screen.availWidth)+',height='+(window.screen.availHeight)+',menubar=0,scrollbars=1,resizable=1,status=1,titlebar=0,toolbar=0,location=1');
+//     },
+//     toQzoneLogout:function(){
+//         this.childWindow.close();
+//     }
+// };
 
 function heartBeat(ws) {
     if(ws && ws.readyState == 1) {
@@ -36,60 +36,60 @@ layui.use(['jquery','layer','form'], function() {
         ,layer=layui.layer
         ,form = layui.form;
 
-    //======register=====
-    function isUsername(str){
-        var reg = /^[a-zA-Z0-9_]+$/;
-        return reg.test(str);
-    }
+    // //======register=====
+    // function isUsername(str){
+    //     var reg = /^[a-zA-Z0-9_]+$/;
+    //     return reg.test(str);
+    // }
 
     //======  统计在线人数  ======
-    function statisticsUser(userOnline) {
-        ws = new WebSocket("wss://www.itgoodboy.com:4431");
-        ws.onopen = function(){
-            ws.send(JSON.stringify({type: 'statistics',userOnline:userOnline}));
-        };
-        ws.onmessage = function(e){
-            var msg = JSON.parse(e.data);
-            $('#userTotal').html(msg.userTotal);
-            $('#pageTotal').html(msg.pageTotal);
-        };
+    // function statisticsUser(userOnline) {
+    //     ws = new WebSocket("wss://www.itgoodboy.com:4431");
+    //     ws.onopen = function(){
+    //         ws.send(JSON.stringify({type: 'statistics',userOnline:userOnline}));
+    //     };
+    //     ws.onmessage = function(e){
+    //         var msg = JSON.parse(e.data);
+    //         $('#userTotal').html(msg.userTotal);
+    //         $('#pageTotal').html(msg.pageTotal);
+    //     };
+    //
+    //     setInterval('heartBeat(ws)', 20000);
+    // }
 
-        setInterval('heartBeat(ws)', 20000);
-    }
 
-
-    form.verify({
-        username: function(value){
-            if(value.length < 6 || value.length >20){
-                return '账号长度为6~20个字符！';
-            }
-
-            if (!isUsername(value)) {
-                return '用户名只能是【字母/数字/下划线】组合';
-            }
-        },
-        password: function(value){
-            if(value.length < 6 || value.length >20){
-                return '密码长度为6~20个字符！';
-            }
-        },
-        passwordAgain: function(value){
-            if(value.length < 6 || value.length >20){
-                return '确认密码有误！';
-            }
-        }
-    });
+    // form.verify({
+    //     username: function(value){
+    //         if(value.length < 6 || value.length >20){
+    //             return '账号长度为6~20个字符！';
+    //         }
+    //
+    //         if (!isUsername(value)) {
+    //             return '用户名只能是【字母/数字/下划线】组合';
+    //         }
+    //     },
+    //     password: function(value){
+    //         if(value.length < 6 || value.length >20){
+    //             return '密码长度为6~20个字符！';
+    //         }
+    //     },
+    //     passwordAgain: function(value){
+    //         if(value.length < 6 || value.length >20){
+    //             return '确认密码有误！';
+    //         }
+    //     }
+    // });
 
 
     //=====login-status=====
     $(document).ready(function(){
-        $.get('/login/status', function(data){
-            var res = data.data;
-            if (res.userid) {
+        $.get('/user/login_status/', function(res){
+            alert('1');
+            if (res.code == 200) {
                 var loginStatus = '<li class="layui-nav-item layui-hide-xs">' +
                     '<a class="fly-nav-avatar" href="//www.itgoodboy.com/my/article">' +
                     '<img src="'+res.avatar+'">' +
-                    '<cite class="layui-hide-xs"> '+res.nickname+' </cite>' +
+                    '<cite class="layui-hide-xs"> '+res.data.nickname+' </cite>' +
                     '</a>' +
                     '</li>' +
                     '<li class="layui-nav-item">' +

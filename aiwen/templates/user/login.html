@@ -16,7 +16,7 @@
                 <div class="layui-tab-item layui-show">
                     <div class="layui-form layui-form-pane">
 
-                        <form method="post" action="">
+                        <form method="post" action="" id="login_form">
 {#                            <input type="hidden" name="_token" value="oTgY8c7wmXQYhKvE574YXsFO48qTRIZYOsU04NtM">#}
                             {% csrf_token %}
                             <div class="layui-form-item">
@@ -49,7 +49,7 @@
 
 
                             <div class="layui-form-item">
-                                <button class="layui-btn" lay-filter="*" lay-submit>立即登录</button>
+                                <input class="layui-btn" lay-filter="*" lay-submit type="submit" value="登录">
                                 <span style="padding-left:20px;"></span>
 
                             </div>
@@ -81,8 +81,8 @@
         vip: 0,
         sex: ''
     };
-    layui.config({version: Date.parse(new Date())}).extend({'fly': '/v2/js/index'}).use('fly');
 </script>
+    <script src="/static/js/user/login.js"></script>
 {% endblock %}
 
 

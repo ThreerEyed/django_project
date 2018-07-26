@@ -1,5 +1,5 @@
 django==1.11
 PyMysql
-
+pillow==3.4.1
 
 

@@ -23,7 +23,7 @@
 </head>
 <body>
 <div class="fly-header layui-bg-black">
-    <div class="layui-container"><a class="fly-logo" href="//www.itgoodboy.com"><img src="/static/images/logo.png"
+    <div class="layui-container"><a class="fly-logo" href="{% url 'user:index' %}"><img src="/static/images/logo.png"
                                                                                      width="138" alt="layui"></a>
         <ul class="layui-nav fly-nav layui-hide-xs">
             <li class="layui-nav-item"><a href="//www.itgoodboy.com/c/1a7eed31e7ea"><i
@@ -81,6 +81,7 @@
 {% block footer %}
 
 {% endblock %}
+{#<script src="/static/js/jquery.min.js"></script>#}
 <script src="/static/js/layui.js"></script>
 {% block extjs %}
 
