@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>爱提网 - 提供贴近生活的内容</title>
+{% endblock %}
+
+{% block content %}
+<div class="layui-container fly-marginTop fly-user-main">
+    <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="user">
+        <li class="layui-nav-item"><a href="{% url 'user:my' %}"><i class="layui-icon">&#xe612;</i>用户中心</a></li>
+        <li class="layui-nav-item layui-this"><a href="/my/set_info"><i class="layui-icon">&#xe620;</i>基本设置</a></li>
+        <li class="layui-nav-item"><a href="https://www.itgoodboy.com/u/57d369ba6838" target="_blank"><i
+                class="layui-icon">&#xe609;</i>我的主页</a></li>
+        <li class="layui-nav-item"><a href="/post" target="_blank"><i class="layui-icon icon-jifen"></i>发布文章</a></li>
+
+    </ul>
+    <div class="site-tree-mobile layui-hide">
+        <i class="layui-icon">&#xe602;</i>
+    </div>
+    <div class="site-mobile-shade"></div>
+
+    <div class="site-tree-mobile layui-hide">
+        <i class="layui-icon">&#xe602;</i>
+    </div>
+    <div class="site-mobile-shade"></div>
+
+
+    <div class="fly-panel fly-panel-user" pad20>
+        <div class="layui-tab layui-tab-brief" lay-filter="user">
+            <ul class="layui-tab-title" id="LAY_mine">
+                <li class="layui-this" lay-id="info">我的资料</li>
+                <li lay-id="avatar"><a href="/my/set_avatar">上传头像</a></li>
+                <li lay-id="pass"><a href="/my/set_pwd">修改密码</a></li>
+                <li lay-id="bind"><a href="/my/set_bind">帐号绑定</a></li>
+            </ul>
+            <div class="layui-tab-content" style="padding: 20px 0;">
+                <div class="layui-form layui-form-pane layui-tab-item layui-show">
+                    <form method="post" action="/my/set_info/post">
+                        <input type="hidden" name="_token" value="6p5Y3AOgVRv3vqfBgf2792m9jpzkPszN7TRFmyHM">
+                        <div class="layui-form-item">
+                            <label for="L_email" class="layui-form-label">用户名</label>
+                            <div class="layui-input-inline">
+                                <input type="text" value="qwertyuiop" class="layui-input" disabled="disabled"
+                                       style="color: green;font-weight: bold;">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux" style="color: orangered;">不可修改</div>
+                        </div>
+
+
+                        <div class="layui-form-item">
+                            <label for="L_email" class="layui-form-label">邮箱</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="email" value="" class="layui-input">
+                            </div>
+
+                            <div class="layui-form-mid layui-word-aux">
+                                <span style="color: orangered;">未认证</span>，
+                                <a id="auth_email" href="javascript:;">去认证&nbsp;&gt;&gt;</a>
+                            </div>
+                        </div>
+
+
+                        <div class="layui-form-item">
+                            <label for="L_username" class="layui-form-label">昵称</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="L_username" name="nickname" required lay-verify="required"
+                                       autocomplete="off" value="" class="layui-input">
+                            </div>
+
+                        </div>
+                        <div class="layui-form-item">
+                            <label for="L_city" class="layui-form-label">作者</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="L_city" name="author" autocomplete="off" value=""
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item layui-form-text">
+                            <label for="L_sign" class="layui-form-label">签名</label>
+                            <div class="layui-input-block">
+<textarea placeholder="随便写些什么刷下存在感" id="L_sign" name="sign" autocomplete="off"
+          class="layui-textarea" style="height: 80px;"></textarea>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <button class="layui-btn" key="set-mine" lay-filter="*" lay-submit>确认修改</button>
+                        </div>
+                    </form>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+<script>
+    layui.use('jquery', function () {
+        var $ = layui.jquery;
+        $('#auth_email').click(function () {
+            var email = $('#email').val();
+            var url = '/my/send_email?email=' + email;
+            $.get(url, function (data) {
+                layer.msg(JSON.stringify(data.msg));
+            }, 'json');
+
+        });
+    });
+</script>

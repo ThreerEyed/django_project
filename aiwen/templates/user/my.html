@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>爱提网 - 提供贴近生活的内容</title>
+{% endblock %}
+<style>
+    .pagination li {
+        float: left;
+    }
+
+    .pagination li.active, .pagination a.now {
+        color: #fff;
+        background-color: #4e4e4e;
+    }
+
+    .pagination span {
+        font-size: 14px;
+        height: 32px;
+        line-height: 30px;
+        padding: 8px 10px;
+        margin-right: 2px;
+    }
+
+    .pagination a {
+        background-color: #eee;
+        color: #666;
+        font-size: 14px;
+        height: 30px;
+        line-height: 30px;
+        padding: 8px 10px;
+        margin-right: 2px;
+    }
+
+    .pagination a:hover {
+        background-color: #4e4e4e;
+        color: #fff;
+    }
+</style>
+{% block content %}
+<div class="layui-container fly-marginTop fly-user-main">
+    <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="user">
+        <li class="layui-nav-item layui-this"><a href="{% url 'user:my' %}"><i class="layui-icon">&#xe612;</i>用户中心</a></li>
+        <li class="layui-nav-item"><a href="{% url 'user:setting' %}"><i class="layui-icon">&#xe620;</i>基本设置</a></li>
+        <li class="layui-nav-item"><a href="https://www.itgoodboy.com/u/57d369ba6838" target="_blank"><i
+                class="layui-icon">&#xe609;</i>我的主页</a></li>
+        <li class="layui-nav-item"><a href="/post" target="_blank"><i class="layui-icon icon-jifen"></i>发布文章</a></li>
+
+    </ul>
+    <div class="site-tree-mobile layui-hide">
+        <i class="layui-icon">&#xe602;</i>
+    </div>
+    <div class="site-mobile-shade"></div>
+
+    <div class="site-tree-mobile layui-hide">
+        <i class="layui-icon">&#xe602;</i>
+    </div>
+    <div class="site-mobile-shade"></div>
+
+
+    <div class="fly-panel fly-panel-user" pad20>
+        <div class="fly-msg" style="margin-top: 15px;">
+            您的邮箱尚未验证，这比较影响您的帐号安全，<a href="/my/set_info">立即去激活？</a>
+        </div>
+
+        <div class="layui-tab layui-tab-brief" lay-filter="user">
+            <ul class="layui-tab-title" id="LAY_mine">
+
+
+                <li class="layui-this"><a href="/my/article?status=1">已通过</a></li>
+                <li><a href="/my/article?status=0">审核中</a></li>
+                <li><a href="/my/article?status=2">未通过</a></li>
+                <li><a href="/my/collection">我的收藏</a></li>
+            </ul>
+
+            <div class="fly-msg" style="margin-top: 15px;text-align: center">
+                暂无相关文章
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
