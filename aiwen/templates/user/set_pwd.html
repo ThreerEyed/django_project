@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>密码修改</title>
+{% endblock %}
+
+{% block content %}
+<div class="layui-container fly-marginTop fly-user-main">
+    <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="user">
+        <li class="layui-nav-item"><a href="{% url 'user:my' %}"><i class="layui-icon">&#xe612;</i>用户中心</a></li>
+        <li class="layui-nav-item layui-this"><a href="{% url 'user:setting' %}"><i class="layui-icon">&#xe620;</i>基本设置</a></li>
+        <li class="layui-nav-item"><a href="https://www.itgoodboy.com/u/57d369ba6838" target="_blank"><i
+                class="layui-icon">&#xe609;</i>我的主页</a></li>
+        <li class="layui-nav-item"><a href="/post" target="_blank"><i class="layui-icon icon-jifen"></i>发布文章</a></li>
+
+    </ul>
+    <div class="site-tree-mobile layui-hide">
+        <i class="layui-icon">&#xe602;</i>
+    </div>
+    <div class="site-mobile-shade"></div>
+
+    <div class="site-tree-mobile layui-hide">
+        <i class="layui-icon">&#xe602;</i>
+    </div>
+    <div class="site-mobile-shade"></div>
+
+
+    <div class="fly-panel fly-panel-user" pad20>
+        <div class="layui-tab layui-tab-brief" lay-filter="user">
+            <ul class="layui-tab-title" id="LAY_mine">
+                <li lay-id="info"><a href="{% url 'user:my' %}">我的资料</a></li>
+                <li lay-id="avatar"><a href="{% url 'user:set_avatar' %}">上传头像</a></li>
+                <li class="layui-this" lay-id="pass">修改密码</li>
+                <li lay-id="bind"><a href="{% url 'user:set_bind' %}">帐号绑定</a></li>
+            </ul>
+            <div class="layui-tab-content" style="padding: 20px 0;">
+                <div class="layui-form layui-form-pane layui-tab-item layui-show">
+                    <form id="set_pwd">
+                        {% csrf_token %}
+                        <input type="hidden" name="_token" value="4ty5cyPjH3tmZicApBz9E5ahBJfW5rVJ7zciZCn8">
+                        <div class="layui-form-item">
+                            <label for="L_pass" class="layui-form-label">新密码</label>
+                            <div class="layui-input-inline">
+                                <input type="password" id="L_pass" name="password" required lay-verify="required"
+                                       autocomplete="off" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">6到16个字符</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label for="L_repass" class="layui-form-label">确认密码</label>
+                            <div class="layui-input-inline">
+                                <input type="password" id="L_repass" name="newpassword" required lay-verify="required"
+                                       autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <input type="submit" class="layui-btn" key="set-mine" value="确认修改">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extjs %}
+    <script src="/static/js/user/set_pwd.js"></script>
+{% endblock %}

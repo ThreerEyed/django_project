@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>设置头像</title>
+{% endblock %}
+
+{% block content %}
+<div class="layui-container fly-marginTop fly-user-main">
+    <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="user">
+        <li class="layui-nav-item"><a href="{% url 'user:my' %}"><i class="layui-icon">&#xe612;</i>用户中心</a></li>
+        <li class="layui-nav-item layui-this"><a href="{% url 'user:setting' %}"><i class="layui-icon">&#xe620;</i>基本设置</a></li>
+        <li class="layui-nav-item"><a href="https://www.itgoodboy.com/u/57d369ba6838" target="_blank"><i
+                class="layui-icon">&#xe609;</i>我的主页</a></li>
+        <li class="layui-nav-item"><a href="/post" target="_blank"><i class="layui-icon icon-jifen"></i>发布文章</a></li>
+
+    </ul>
+    <div class="site-tree-mobile layui-hide">
+        <i class="layui-icon">&#xe602;</i>
+    </div>
+    <div class="site-mobile-shade"></div>
+
+    <div class="site-tree-mobile layui-hide">
+        <i class="layui-icon">&#xe602;</i>
+    </div>
+    <div class="site-mobile-shade"></div>
+
+
+    <div class="fly-panel fly-panel-user" pad20>
+        <div class="layui-tab layui-tab-brief" lay-filter="user">
+            <ul class="layui-tab-title" id="LAY_mine">
+                <li lay-id="info"><a href="{% url 'user:setting' %}">我的资料</a></li>
+                <li class="layui-this" lay-id="avatar"><a href="{% url 'user:set_avatar' %}">上传头像</a></li>
+                <li lay-id="pass"><a href="{% url 'user:set_pwd' %}">修改密码</a></li>
+                <li lay-id="bind"><a href="{% url 'user:set_bind' %}">帐号绑定</a></li>
+            </ul>
+                {% csrf_token %}
+            <div class="layui-tab-content" style="padding: 20px 0;">
+                <div class="layui-form layui-form-pane layui-tab-item layui-show">
+                    <div class="layui-form-item">
+                        <div class="avatar-add">
+                            <p>建议尺寸168*168，支持jpg、png、gif，最大不能超过50KB</p>
+                            <button type="button" class="layui-btn upload-img">
+                                <i class="layui-icon">&#xe67c;</i>上传头像
+                            </button>
+{#                            <i class="layui-icon">&#xe67c;</i>#}
+{#                            <input type="file" value="头像上传" class="layui-btn" name="image">#}
+                            {% if user.avatar %}
+                            <img id="LAY_demo_upload"
+                                 src="/static/images/{{ avatar }}">
+                            {% else %}
+                            <img id="LAY_demo_upload"
+                                 src="/static/images/default.png">
+                            {% endif %}
+                            <span class="loading"></span>
+{#                            <button type="submit" class="layui-btn">提交</button>#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extjs %}
+<script src="/static/js/user/setAvatar.js"></script>
+{% endblock %}

@@ -40,6 +40,7 @@ class User(BaseMode, models.Model):
             'username': self.name,
             'email': self.email,
             'nickname': self.nickname,
+            'avatar': self.avatar.name,
             'self_introduction': self.self_introduction
 
         }

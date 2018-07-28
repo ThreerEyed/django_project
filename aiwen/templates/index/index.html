@@ -627,20 +627,3 @@
         </div>
     </div>
 {% endblock %}
-
-{% block extjs %}
-
-    <script>
-        layui.cache.page = 'index';
-        layui.cache.user = {
-            username: '游客',
-            uid: 2,
-            avatar: '/image/default.png',
-            experience: 110,
-            sum: 0,
-            vip: 0,
-            sex: ''
-        };
-        layui.config({version: Date.parse(new Date())}).extend({'fly': '/v2/js/index'}).use('fly');
-    </script>
-{% endblock %}

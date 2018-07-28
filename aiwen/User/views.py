@@ -58,7 +58,12 @@ def register(request):
         if password != password_again:
             return JsonResponse(statucode.PASSWORD_NOT_SAME)
 
-        user = User.objects.create(phone=phone, name=username, password=make_password(password))
+        # 创建用户时候的默认头像
+        avatar = 'user_avatar/default.png'
+        # 创建用户的时候昵称就是注册时候的名字
+        nickname = username
+        user = User.objects.create(phone=phone, name=username, password=make_password(password),
+                                   avatar=avatar, nickname=nickname)
         user.save()
 
         return JsonResponse({'code': statucode.OK})
@@ -104,5 +109,75 @@ def login_status(request):
         if User.objects.filter(ticket=ticket).first():
             user = User.objects.filter(ticket=ticket).first()
             avatar = user.avatar
-            return JsonResponse({'code': statucode.OK, 'data': user.to_dict(), 'avatar': avatar})
+            return JsonResponse({'code': statucode.OK, 'data': user.to_dict()})
         return JsonResponse(statucode.USER_NOT_LOGIN)
+
+
+# 用户中心
+def my(request):
+    """用户中心"""
+    if request.method == 'GET':
+        return render(request, 'user/my.html')
+
+
+# 用户设置
+def setting(request):
+    """用户设置"""
+    if request.method == 'GET':
+        return render(request, 'user/setting.html')
+
+
+def set_avatar(request):
+    """头像设置"""
+    if request.method == 'GET':
+        return render(request, 'user/setAvatar.html')
+
+    if request.method == 'POST':
+        image = request.FILES.get('file')
+
+        ticket = request.COOKIES.get('ticket')
+        user = User.objects.filter(ticket=ticket).first()
+        if user:
+            user.avatar = image
+        user.save()
+
+        src = '/median/' + image.name
+        return JsonResponse({'code': statucode.OK, 'data': src})
+
+
+def set_pwd(request):
+    """密码修改"""
+    print('====================')
+    if request.method == 'GET':
+        return render(request, 'user/set_pwd.html')
+
+    if request.method == 'POST':
+        print('=======')
+        new_pwd = request.POST.get('password')
+        new_pwd_confirm = request.POST.get('newpassword')
+
+        user = User.objects.filter(ticket=request.COOKIES.get('ticket')).first()
+        old_pwd = user.password
+
+        # 验证数据完整性
+        if not all([new_pwd, new_pwd_confirm]):
+            return JsonResponse(statucode.DATA_NOT_COMPLETE)
+
+        # 新旧密码不能相同
+        if check_password(new_pwd, old_pwd):
+            return JsonResponse(statucode.THE_SAME_PASSWORD)
+
+        # 验证密码是否输入一致
+        if new_pwd != new_pwd_confirm:
+            return JsonResponse(statucode.PASSWORD_NOT_SAME)
+
+        user.password = make_password(new_pwd_confirm)
+        user.save()
+
+        return JsonResponse({'code': statucode.OK})
+
+
+def set_bind(request):
+    """绑定邮箱"""
+    if request.method == 'GET':
+        return render(request, 'user/set_bind.html')

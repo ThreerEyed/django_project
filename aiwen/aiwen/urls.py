@@ -23,5 +23,5 @@ from aiwen import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^user/', include('User.urls', namespace='user')),
-    url(r'', views.index)
+    # url(r'', views.index)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

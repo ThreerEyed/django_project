@@ -84,19 +84,18 @@ layui.use(['jquery','layer','form'], function() {
     //=====login-status=====
     $(document).ready(function(){
         $.get('/user/login_status/', function(res){
-            alert('1');
             if (res.code == 200) {
                 var loginStatus = '<li class="layui-nav-item layui-hide-xs">' +
-                    '<a class="fly-nav-avatar" href="//www.itgoodboy.com/my/article">' +
-                    '<img src="'+res.avatar+'">' +
+                    '<a class="fly-nav-avatar" href="/user/my/">' +
+                    '<img src="/media/'+res.data.avatar+'">' +
                     '<cite class="layui-hide-xs"> '+res.data.nickname+' </cite>' +
                     '</a>' +
                     '</li>' +
                     '<li class="layui-nav-item">' +
-                    '<a href="//www.itgoodboy.com/my/set_info"><i class="iconfont icon-shezhi" style="top: 0; font-size: 21px;"></i> 设置</a>' +
+                    '<a href="/user/setting/"><i class="iconfont icon-shezhi" style="top: 0; font-size: 21px;"></i> 设置</a>' +
                     '</li>' +
                     '<li class="layui-nav-item">' +
-                    '<a href="//www.itgoodboy.com/logout"><i class="iconfont icon-tuichu" style="top: 0; font-size: 21px;"></i> 退出</a>' +
+                    '<a href="/user/logout/"><i class="iconfont icon-tuichu" style="top: 0; font-size: 21px;"></i> 退出</a>' +
                     '</li>';
 
 
@@ -110,14 +109,14 @@ layui.use(['jquery','layer','form'], function() {
 
             } else {
                 var loginStatus = '<li class="layui-nav-item"><a class="iconfont icon-touxiang layui-hide-xs" href="/login"></a></li>' +
-                    '<li class="layui-nav-item"><a href="/login">登入</a></li>' +
-                    '<li class="layui-nav-item"><a href="/register">注册</a></li>';
+                    '<li class="layui-nav-item"><a href="/user/login/">登入</a></li>' +
+                    '<li class="layui-nav-item"><a href="/user/register">注册</a></li>';
             }
 
             $('#loginStatus').html(loginStatus);
 
             //======  统计在线人数 start  ======
-            statisticsUser(res.userOnline);
+            // statisticsUser(res.userOnline);
             //======  统计在线人数 end  ======
 
         }, 'json');
@@ -125,33 +124,33 @@ layui.use(['jquery','layer','form'], function() {
 
 
 
-    //=====收藏，取消收藏=====
-    $('#collection_up').click(function(){
-        $.get('/my/collection/up?uuid='+$(this).attr('data'), function(data){
+    // //=====收藏，取消收藏=====
+    // $('#collection_up').click(function(){
+    //     $.get('/my/collection/up?uuid='+$(this).attr('data'), function(data){
+    //
+    //         layer.alert(data.msg, {
+    //             'icon':data.icon,
+    //             'time':1200,
+    //             end:data.action ? (function(){
+    //                 window.location.href = window.location;
+    //             }) : ''
+    //         });
+    //     });
+    // });
 
-            layer.alert(data.msg, {
-                'icon':data.icon,
-                'time':1200,
-                end:data.action ? (function(){
-                    window.location.href = window.location;
-                }) : ''
-            });
-        });
-    });
 
-
-    $('#collection_down').click(function(){
-        $.get('/my/collection/down?uuid='+$(this).attr('data'), function(data){
-
-            layer.alert(data.msg, {
-                'icon':data.icon,
-                'time':1200,
-                end:data.action ? (function(){
-                    window.location.href = window.location;
-                }) : ''
-            });
-        });
-    });
+    // $('#collection_down').click(function(){
+    //     $.get('/my/collection/down?uuid='+$(this).attr('data'), function(data){
+    //
+    //         layer.alert(data.msg, {
+    //             'icon':data.icon,
+    //             'time':1200,
+    //             end:data.action ? (function(){
+    //                 window.location.href = window.location;
+    //             }) : ''
+    //         });
+    //     });
+    // });
 
     //=====验证码=====
     $(".change_captcha").click(function () {
@@ -161,27 +160,27 @@ layui.use(['jquery','layer','form'], function() {
 
     //===== delete article =====
 
-    $('#article_delete').click(function(){
-        var uuid = $(this).attr('data');
-        layer.confirm('确定删除？', {icon: 3, title:'提示'}, function(){
-            $.get('/admin/delete?uuid='+uuid, function(data){
-                layer.alert(data.msg, {
-                    'icon':data.icon,
-                    'time':1200,
-                    end:data.action ? (function(){
-                        window.location.href = window.location;
-                    }) : ''
-                });
-            });
-        });
-    });
+    // $('#article_delete').click(function(){
+    //     var uuid = $(this).attr('data');
+    //     layer.confirm('确定删除？', {icon: 3, title:'提示'}, function(){
+    //         $.get('/admin/delete?uuid='+uuid, function(data){
+    //             layer.alert(data.msg, {
+    //                 'icon':data.icon,
+    //                 'time':1200,
+    //                 end:data.action ? (function(){
+    //                     window.location.href = window.location;
+    //                 }) : ''
+    //             });
+    //         });
+    //     });
+    // });
 
 });
 
 
-//360自动收录功能
-(function(){
-    var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?d81035cbcce727eff97b602591e082ec":"https://jspassport.ssl.qhimg.com/11.0.1.js?d81035cbcce727eff97b602591e082ec";
-    document.write('<script src="' + src + '" id="sozz"><\/script>');
-})();
+// //360自动收录功能
+// (function(){
+//     var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?d81035cbcce727eff97b602591e082ec":"https://jspassport.ssl.qhimg.com/11.0.1.js?d81035cbcce727eff97b602591e082ec";
+//     document.write('<script src="' + src + '" id="sozz"><\/script>');
+// })();
 
