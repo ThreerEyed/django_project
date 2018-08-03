@@ -14,7 +14,11 @@ layui.use(['jquery','layer','form'], function() {
                 data: data,
                 success: function (resp) {
                     if (resp.code == 200){
-                        location.href = '/user/index/'
+                        if('login'.indexOf(resp.url)){
+                            location.href = '/article/index/'
+                        }else{
+                            location.href = resp.url
+                        }
                     } else {
                         layer.alert(resp.msg)
                     }

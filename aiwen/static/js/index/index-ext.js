@@ -83,6 +83,7 @@ layui.use(['jquery','layer','form'], function() {
 
     //=====login-status=====
     $(document).ready(function(){
+        var current_url = location.href;
         $.get('/user/login_status/', function(res){
             if (res.code == 200) {
                 var loginStatus = '<li class="layui-nav-item layui-hide-xs">' +
@@ -110,7 +111,7 @@ layui.use(['jquery','layer','form'], function() {
             } else {
                 var loginStatus = '<li class="layui-nav-item"><a class="iconfont icon-touxiang layui-hide-xs" href="/login"></a></li>' +
                     '<li class="layui-nav-item"><a href="/user/login/">登入</a></li>' +
-                    '<li class="layui-nav-item"><a href="/user/register">注册</a></li>';
+                    '<li class="layui-nav-item"><a href="/user/register/">注册</a></li>';
             }
 
             $('#loginStatus').html(loginStatus);

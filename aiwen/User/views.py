@@ -2,18 +2,13 @@ import re
 
 from django.contrib.auth.hashers import make_password, check_password
 from django.db.models import Q
-from django.http import JsonResponse
-from django.shortcuts import render
+from django.http import JsonResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+from django.urls import reverse
 
 from User.models import User
 from utils import statucode
 from utils.functions import get_ticket
-
-
-def index(request):
-    """首页视图"""
-    if request.method == 'GET':
-        return render(request, 'index/index.html')
 
 
 def register(request):
@@ -72,6 +67,7 @@ def register(request):
 def login(request):
     """登录视图"""
     if request.method == 'GET':
+        request.session['login_from'] = request.META.get('HTTP_REFERER', '/')
         return render(request, 'user/login.html')
 
     if request.method == 'POST':
@@ -97,8 +93,19 @@ def login(request):
         user.ticket = ticket
         user.save()
 
-        response = JsonResponse({'code': statucode.OK})
+        # 从session 中取出存放的login_from 然后将其返回到前端
+        url = request.session.get('login_from')
+
+        response = JsonResponse({'code': statucode.OK, 'jump_url': url})
         response.set_cookie('ticket', ticket)
+        return response
+
+
+def logout(request):
+    """退出登录, 把ticket清除即可"""
+    if request.method == 'GET':
+        response = HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        response.delete_cookie('ticket')
         return response
 
 
@@ -147,12 +154,10 @@ def set_avatar(request):
 
 def set_pwd(request):
     """密码修改"""
-    print('====================')
     if request.method == 'GET':
         return render(request, 'user/set_pwd.html')
 
     if request.method == 'POST':
-        print('=======')
         new_pwd = request.POST.get('password')
         new_pwd_confirm = request.POST.get('newpassword')
 
@@ -162,6 +167,11 @@ def set_pwd(request):
         # 验证数据完整性
         if not all([new_pwd, new_pwd_confirm]):
             return JsonResponse(statucode.DATA_NOT_COMPLETE)
+
+        # 验证密码是否符合要求
+        password_reg = re.match('^\w{6,20}', new_pwd)
+        if not password_reg:
+            return JsonResponse(statucode.PASSWORD_FORMAT_ERROR)
 
         # 新旧密码不能相同
         if check_password(new_pwd, old_pwd):

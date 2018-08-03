@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="爱提网,最新社会动态,互联网科技资讯,金融投资理财,家常菜菜谱大全">
+    <meta name="description" content="爱提网是一个泛主题网站，提供贴近生活的内容，您可以在这里阅读、分享、交流、提问。">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>爱提网 - 提供贴近生活的内容</title>
+    <link rel="stylesheet" href="/static/css/font_24081_aym082o86np3z0k9.css" charset="utf-8">
+
+    <link rel="stylesheet" href="/static/css/layui.css">
+    <link rel="stylesheet" href="/static/css/global.css" charset="utf-8">
+    <link rel="stylesheet" href="/static/css/global-ext.css" charset="utf-8">
+
+    <link rel="shortcut icon" href="/static/images/favicon.ico"/>
+</head>
+<body>
+
+
+<div class="fly-header layui-bg-black">
+    <div class="layui-container"><a class="fly-logo" href="//www.itgoodboy.com"><img src="/static/images/logo.png"
+                                                                                     width="138" alt="layui"></a>
+        <ul class="layui-nav fly-nav layui-hide-xs">
+            <li class="layui-nav-item"><a href="//www.itgoodboy.com/c/1a7eed31e7ea"><i
+                    class="iconfont icon-shichang"></i>科技</a></li>
+            <li class="layui-nav-item"><a href="//www.itgoodboy.com/c/42934c9e5982"><i class="iconfont icon-jifen"></i>财经</a>
+            </li>
+            <li class="layui-nav-item"><a href="//www.itgoodboy.com/c/f17c99a07b56"><i
+                    class="iconfont icon-pinglun2"></i>美食</a></li>
+            <li class="layui-nav-item"><a href="//www.itgoodboy.com/c/111068b1d68d"><i
+                    class="iconfont icon-iconmingxinganli"></i>绘画<span class="layui-badge-dot"></span></a></li>
+        </ul>
+        <ul class="layui-nav fly-nav-user" id="loginStatus">
+            <li class="layui-nav-item"><a class="iconfont icon-touxiang layui-hide-xs"
+                                          href="//www.itgoodboy.com/login"></a></li>
+            <li class="layui-nav-item"><a href="{% url 'user:login' %}">登入</a></li>
+            <li class="layui-nav-item"><a href="{% url 'user:register' %}">注册</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="layui-container fly-marginTop">
+    <div class="fly-panel" pad20 style="padding-top: 5px;">
+        <div class="layui-form layui-form-pane">
+            <div class="layui-tab layui-tab-brief" lay-filter="user">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">发布文章</li>
+                </ul>
+                <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
+                    <div class="layui-tab-item layui-show">
+
+                        <form action="/post/submit" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="newsid" value=""/>
+                            <input type="hidden" name="thumbid" value="" id="thumbid"/>
+
+                            <input id="vertifycode_hidden" value="" type="hidden"/>
+                            <input id="bigcat" value="" type="hidden"/>
+                            <input id="subcat" value="" type="hidden"/>
+
+                            <div class="layui-form-item">
+
+                                <label class="layui-form-label"><span class="star">*</span>标题</label>
+                                <div class="layui-input-block">
+
+
+                                    <input name="title" lay-verify="title" required value="" autocomplete="off"
+                                           placeholder="请输入标题（5~100个字）" class="layui-input">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label"><span class="star">*</span>摘要</label>
+                                <div class="layui-input-block">
+                                    <input name="description" lay-verify="description" required
+                                           placeholder="请输入摘要（5~200个字）" class="layui-input" value=""/>
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label"><span class="star">*</span>栏目</label>
+                                <div class="layui-input-inline">
+                                    <select id="parentid" name="parentid" lay-verify="parentid" required
+                                            lay-filter="parentid">
+                                        <option value="">请选择</option>
+                                        <option value="50">财经</option>
+                                        <option value="60">科技</option>
+                                        <option value="70">生活</option>
+                                        <option value="82">美食</option>
+                                    </select>
+                                </div>
+                                <div class="layui-input-inline">
+                                    <select id="catid" name="catid" lay-verify="catid" required lay-filter="catid">
+                                        <option value="">请选择</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-tip">(请选择正确的栏目，否则导致审核不通过)</div>
+
+                            </div>
+
+
+                            <div class="layui-form-item layui-form-text">
+                                <div class="layui-input-block">
+
+                                    <textarea id="L_content" name="content" required lay-verify="required"
+                                              placeholder="详细描述" class="layui-textarea fly-editor"
+                                              style="height: 260px;"></textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">标签</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="keyword" lay-verify="" value="" autocomplete="off"
+                                           placeholder="标签一    标签二    标签三" class="layui-input">
+                                </div>
+                                <div class="input-tip">（请用“空格”分隔标签，填写标签有助于站内搜索）</div>
+                            </div>
+
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">来源</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="copyfrom" lay-verify="" value="" placeholder="请输入来源"
+                                           autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">作者</label>
+                                <div class="layui-input-inline">
+                                    <input type="tel" name="author" lay-verify="" value="小楼听风" placeholder="请输入作者"
+                                           autocomplete="off" class="layui-input">
+                                </div>
+                                <div class="input-tip"><a href="{% url 'user:setting' %}" target="_blank">去设置&gt;&gt;</a></div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label"><span class="star">*</span>验证码</label>
+                                <div class="layui-input-inline">
+                                    <input name="captcha" lay-verify="captcha" required value="" placeholder="请输入验证码"
+                                           autocomplete="off" class="layui-input">
+                                </div>
+
+                                <p id="seccodeimg">
+                                    <span id="code_img"><img class="change_code" id="captcha"
+                                                             src="https://www.itgoodboy.com/captcha/flat?K0dfK8Zh"/></span>
+                                    <a href="javascript:void(0);" class="change_code"
+                                       style="color:orangered;">看不清？换一张</a><span id="vertifycodeTip"
+                                                                                 style="margin-left: 10px;"></span>
+                                </p>
+                            </div>
+
+                            <div class="layui-form-item">
+
+                                <button class="layui-btn" lay-filter="*" lay-submit>立即发布</button>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="bigcat_10" style="display:none;">
+        <option value="">请选择</option>
+        <option value="1010">观点</option>
+        <option value="1014">人物</option>
+        <option value="1016">动态</option>
+    </div>
+
+    <div id="bigcat_60" style="display:none;">
+        <option value="">请选择</option>
+        <option value="6001">互联网+</option>
+        <option value="6002">大数据</option>
+        <option value="6003">创投</option>
+        <option value="6004">软件</option>
+    </div>
+
+    <div id="bigcat_40" style="display:none;">
+        <option value="">请选择</option>
+        <option value="4001">行业</option>
+        <option value="4002">新车</option>
+        <option value="4003">用车</option>
+        <option value="4004">快讯</option>
+    </div>
+
+    <div id="bigcat_50" style="display:none;">
+        <option value="">请选择</option>
+        <option value="5001">洞见</option>
+        <option value="5002">产经</option>
+        <option value="5003">证券</option>
+        <option value="5004">败局</option>
+    </div>
+
+    <div id="bigcat_70" style="display:none;">
+        <option value="">请选择</option>
+        <option value="7001">文化</option>
+        <option value="7002">娱乐</option>
+        <option value="7003">体育</option>
+        <option value="7010">信阳毛尖</option>
+    </div>
+
+    <div id="bigcat_80" style="display:none;">
+        <option value="">请选择</option>
+        <option value="8001">教程</option>
+        <option value="8003">百科</option>
+        <option value="8004">油画</option>
+        <option value="8005">国画</option>
+        <option value="8006">漫画</option>
+    </div>
+    <div id="bigcat_81" style="display:none;">
+        <option value="">请选择</option>
+        <option value="8101">美女直播</option>
+        <option value="8102">职业美女</option>
+        <option value="8103">欧美女神</option>
+        <option value="8104">小萝莉</option>
+        <option value="8105">卡通美女</option>
+        <option value="8106">维秘女郎</option>
+    </div>
+
+    <div id="bigcat_82" style="display:none;">
+        <option value="">请选择</option>
+        <option value="8201">热菜</option>
+        <option value="8202">凉菜</option>
+        <option value="8203">汤羹</option>
+        <option value="8204">主食</option>
+        <option value="8205">小吃</option>
+        <option value="8206">西餐</option>
+    </div>
+
+</div>
+
+<div class="fly-footer">
+    <p>
+        <a href="" target="_blank">关于我们</a><span class="fly-mid"></span>
+        <a href="//www.itgoodboy.com/p/c6c463925dbe" target="_blank">帮助中心</a><span class="fly-mid"></span>
+        <a href="//www.itgoodboy.com/im" target="_blank">联系客服</a>
+    </p>
+    <p>Copyright&nbsp;&copy;&nbsp;2018&nbsp;爱提网 All rights reserved.
+        <a href="http://www.miitbeian.gov.cn" target="_blank" rel="nofollow" style="display:inline-block;">豫ICP备14014264号-1</a>
+    </p>
+</div>
+
+<script src="/static/js/layui.js"></script>
+<script src="/static/js/index/index-ext.js"></script>
+<script src="/static/js/article/publish_article.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

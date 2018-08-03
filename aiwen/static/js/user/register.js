@@ -30,7 +30,11 @@ layui.use(['jquery','layer','form'], function() {
                 data: data,
                 success: function (resp) {
                     if (resp.code == 200){
-                        location.href = '/user/index/'
+                        layer.confirm('登录成功',{
+                            btn: ['确认']
+                        }, function () {
+                            location.href = '/user/login/'
+                        })
                     } else {
                         layer.alert(resp.msg)
                     }
